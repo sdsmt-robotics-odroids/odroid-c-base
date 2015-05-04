@@ -1,0 +1,1 @@
+SUBSYSTEM=="graphics", ACTION=="add", KERNELS=="mesonfb", KERNEL=="fb0", RUN+="c_init_fb0.sh"

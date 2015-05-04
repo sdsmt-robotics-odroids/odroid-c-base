@@ -1,0 +1,1 @@
+SUBSYSTEM=="ppmgr", ACTION=="add", KERNEL=="ppmgr", RUN+="c_init_ppmgr.sh"
