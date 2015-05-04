@@ -35,10 +35,10 @@ for udev.
 
 %install
 install -p -m0644 -D %{SOURCE0} %{buildroot}%{_prefix}/lib/dracut/dracut.conf.d/02-c_init.conf
-install -p -m0644 -D %{SOURCE1} %{buildroot}%{_prefix}/lib/udev/rules.d/60-c_init_fb0.rules
-install -p -m0644 -D %{SOURCE2} %{buildroot}%{_prefix}/lib/udev/rules.d/60-c_init_fb1.rules
-install -p -m0644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/udev/rules.d/60-c_init_net.rules
-install -p -m0644 -D %{SOURCE4} %{buildroot}%{_prefix}/lib/udev/rules.d/60-c_init_ppmgr.rules
+install -p -m0644 -D %{SOURCE1} %{buildroot}%{_prefix}/lib/udev/rules.d/55-c_init_fb0.rules
+install -p -m0644 -D %{SOURCE2} %{buildroot}%{_prefix}/lib/udev/rules.d/55-c_init_fb1.rules
+install -p -m0644 -D %{SOURCE3} %{buildroot}%{_prefix}/lib/udev/rules.d/55-c_init_net.rules
+install -p -m0644 -D %{SOURCE4} %{buildroot}%{_prefix}/lib/udev/rules.d/55-c_init_ppmgr.rules
 install -p -m0644 -D %{SOURCE5} %{buildroot}%{_prefix}/lib/udev/rules.d/60-c_mali.rules
 install -p -m0644 -D %{SOURCE6} %{buildroot}%{_sysconfdir}/sysctl.d/99-c-network.conf
 install -p -m0755 -D %{SOURCE7} %{buildroot}%{_prefix}/lib/udev/c_init_fb0.sh
@@ -49,10 +49,10 @@ install -p -m0644 -D %{SOURCE11} %{buildroot}%{_datadir}/alsa/cards/SOC-Audio.co
 
 %files
 %{_prefix}/lib/dracut/dracut.conf.d/02-c_init.conf
-%{_prefix}/lib/udev/rules.d/60-c_init_fb0.rules
-%{_prefix}/lib/udev/rules.d/60-c_init_fb1.rules
-%{_prefix}/lib/udev/rules.d/60-c_init_net.rules
-%{_prefix}/lib/udev/rules.d/60-c_init_ppmgr.rules
+%{_prefix}/lib/udev/rules.d/55-c_init_fb0.rules
+%{_prefix}/lib/udev/rules.d/55-c_init_fb1.rules
+%{_prefix}/lib/udev/rules.d/55-c_init_net.rules
+%{_prefix}/lib/udev/rules.d/55-c_init_ppmgr.rules
 %{_prefix}/lib/udev/rules.d/60-c_mali.rules
 %config(noreplace) %{_sysconfdir}/sysctl.d/99-c-network.conf
 %{_prefix}/lib/udev/c_init_fb0.sh
@@ -64,5 +64,8 @@ install -p -m0644 -D %{SOURCE11} %{buildroot}%{_datadir}/alsa/cards/SOC-Audio.co
 %dir %{_datadir}/alsa/cards
 
 %changelog
+* Sun May 03 2015 Scott K Logan <logans@cottsay.net> - 0.1.0-2
+- Fix some incorrect filenames
+
 * Sun May 03 2015 Scott K Logan <logans@cottsay.net> - 0.1.0-1
 - Initial package
