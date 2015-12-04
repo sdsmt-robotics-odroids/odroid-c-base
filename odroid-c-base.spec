@@ -1,5 +1,5 @@
 Name:           odroid-c-base
-Version:        0.1.0
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        Basic system configurations for ODROID-C
 
@@ -18,6 +18,7 @@ Source8:        c_init_fb1.sh
 Source9:        c_init_net.sh
 Source10:       c_init_ppmgr.sh
 Source11:       SOC-Audio.conf
+Source12:       odroid-c-mali.sh
 
 BuildArch:      noarch
 
@@ -46,6 +47,7 @@ install -p -m0755 -D %{SOURCE8} %{buildroot}%{_prefix}/lib/udev/c_init_fb1.sh
 install -p -m0755 -D %{SOURCE9} %{buildroot}%{_prefix}/lib/udev/c_init_net.sh
 install -p -m0755 -D %{SOURCE10} %{buildroot}%{_prefix}/lib/udev/c_init_ppmgr.sh
 install -p -m0644 -D %{SOURCE11} %{buildroot}%{_datadir}/alsa/cards/SOC-Audio.conf
+install -p -m0644 -D %{SOURCE12} %{buildroot}%{_sysconfdir}/profile.d/odroid-c-mali.sh
 
 %files
 %{_prefix}/lib/dracut/dracut.conf.d/02-c_init.conf
@@ -62,8 +64,14 @@ install -p -m0644 -D %{SOURCE11} %{buildroot}%{_datadir}/alsa/cards/SOC-Audio.co
 %{_datadir}/alsa/cards/SOC-Audio.conf
 %dir %{_datadir}/alsa
 %dir %{_datadir}/alsa/cards
+%{_sysconfdir}/profile.d/odroid-c-mali.sh
 
 %changelog
+* Thu Dec 03 2015 Scott K Logan <logans@cottsay.net> - 0.2.0-1
+- Add odroid-c-mali.sh
+- Add umplock udev rule
+- Update ALSA config to use hw0,0
+
 * Sun May 03 2015 Scott K Logan <logans@cottsay.net> - 0.1.0-2
 - Fix some incorrect filenames
 

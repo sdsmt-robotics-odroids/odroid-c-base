@@ -1,2 +1,3 @@
 SUBSYSTEM=="misc", ACTION=="add", KERNEL=="mali", MODE="0666", GROUP="video"
 SUBSYSTEM=="ump", ACTION=="add", KERNEL=="ump", MODE="0666", GROUP="video"
+SUBSYSTEM=="umplock", ACTION=="add", KERNEL=="umplock", MODE="0666", GROUP="video"
